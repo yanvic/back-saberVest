@@ -28,7 +28,8 @@ func CreateRouter() *chi.Mux {
 
 		router.Get("/college", handlers.GetUniversity)
 		//router.Get("/{college}/{matter}", handlers.GetCollege)
-		router.Get("/{college}/{matter}/{topic}", handlers.GetQuestions)
+		router.Get("/questions_all", handlers.GetQuestions)
+		router.Get("/questions", handlers.GetQuestionsParams)
 
 	})
 

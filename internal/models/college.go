@@ -5,10 +5,10 @@ import "database/sql"
 var DB *sql.DB
 
 type College struct {
-	ID   int    `json:"id"`
-	Name string `json:"name"`
-	//Code       string `json:"code"`
-	LocationId int `json:"location_id"`
+	ID         int    `json:"id"`
+	Name       string `json:"name"`
+	LocationId int    `json:"location_id"`
+	Code       string `json:"code"`
 }
 
 type Location struct {
@@ -25,7 +25,7 @@ type Location struct {
 //		DB *sql.DB
 //	}
 func (c *College) AllUniversity() ([]College, error) {
-	rows, err := DB.Query("SELECT * FROM college")
+	rows, err := DB.Query("SELECT * FROM university")
 	if err != nil {
 		return nil, err
 	}
@@ -35,7 +35,7 @@ func (c *College) AllUniversity() ([]College, error) {
 
 	for rows.Next() {
 		var college College
-		err := rows.Scan(&college.ID, &college.Name, &college.LocationId)
+		err := rows.Scan(&college.ID, &college.Name, &college.LocationId, &college.Code)
 		if err != nil {
 			return nil, err
 		}

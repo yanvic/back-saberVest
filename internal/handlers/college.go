@@ -3,7 +3,6 @@ package handlers
 import (
 	"back-sabervest/internal/models"
 	"encoding/json"
-	"fmt"
 	"log"
 	"net/http"
 )
@@ -18,9 +17,9 @@ func GetUniversity(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	for _, bk := range bks {
-		fmt.Fprintf(w, "%v, %s, %v, ", bk.ID, bk.Name, bk.LocationId)
-	}
+	//for _, bk := range bks {
+	//	fmt.Fprintf(w, "%v, %s, %v, ", bk.ID, bk.Name, bk.LocationId)
+	//}
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(200)
 	json.NewEncoder(w).Encode(bks)
